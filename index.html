@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Builder</title>
+
+<!-- jsPDF + html2canvas (for PDF download) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Form Section  -->
+    <div class="container">
+    <h2>Resume Builder</h2>
+
+    <label>Profile Image:</label>
+    <input type="file" id="imageUpload" accept="image/*">
+
+    <label> Full Name:</label>
+    <input type="text" id="name">
+
+    <label>Job Title:</label>
+    <input type="text" id="job">
+
+    <label>Email:</label>
+    <input type="email" id="email">
+
+    <label>Phone:</label>
+    <input type="text" id="phone">
+
+    <label>Professional Summary:</label>
+    <textarea id="summary" rows="3"></textarea>
+
+    <label>Skills:</label>
+    <input type="text" id="skills" placeholder="HTML, CSS, JS, React">
+
+    <label>Education:</label>
+    <textarea id="education" rows="3"></textarea>
+
+    <label>Work Experience:</label>
+    <textarea id="experience" rows="3"></textarea>
+
+    <label>Choose Template:</label>
+    <select id="templateSelect">
+        <option value="modern">Modern</option>
+        <option value="minimal">Minimal</option>
+        <option value="professional">Professional</option>
+    </select>
+
+    <!-- Button Section -->
+
+    <button onclick="generateResume()">Generate Resume</button>
+    <button onclick="downloadPDF()">Download PDF</button>
+    <button onclick="window.print()">Print</button>
+
+</div>
+
+<!-- Resume Preview Section -->
+<div id="resumePreview" class="modern">
+    <img id="profileImage" src="">
+
+    <h1 id="displayName">Your Name</h1>
+    <h3 id="displayJob">Your Job Title</h3>
+
+    <p><b>Email:</b> <span id="displayEmail"></span></p>
+    <p><b>Phone:</b> <span id="displayPhone"></span></p>
+    
+    <div class="sectionTitle">Professional Summary</div>
+    <p id="displaySummary"></p>
+
+    <div class="sectionTitle">Skills</div>
+    <ul id="displaySkills"></ul>
+
+    <div class="sectionTitle">Education</div>
+    <p id="displayEducation"></p>
+
+    <div class="sectionTitle">Experience</div>
+    <p id="displayExperience"></p>
+</div>
+<script src="app.js"></script>
+
+</body>
+</html>
